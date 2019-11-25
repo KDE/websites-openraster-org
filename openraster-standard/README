@@ -1,0 +1,6 @@
+
+
+The repository currently only contains the schema for the stack.xml file.
+The compact RelaxNG is considered to be the canonical schema,
+but because compact syntax is not well supported, the XML based schema is also stored here.
+Please make sure to update both when updating the schema.

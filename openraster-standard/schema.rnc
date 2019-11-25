@@ -1,0 +1,58 @@
+grammar {
+ start = 
+   element image {
+     attribute w { xsd:int },
+     attribute h { xsd:int },
+     attribute name { text } ?,
+     stackContent
+     }
+ 
+ stackContent =
+   element stack {
+     layerCommonAttributes,
+     ( stackContent, layerContent, filterContent, textContent )+
+   }
+ 
+ layerContent =
+   element layer {
+     layerCommonAttributes,
+     attribute src { text },
+     attribute composite-op { text } ?,
+     attribute opacity { xsd:float } ?,
+     element filters {
+      ( filterContent ) +
+     }
+   }
+ 
+ filterContent =
+   element filter {
+     layerCommonAttributes,
+     attribute type { text },
+     attribute output { text },
+     paramsContent,
+     stackContent
+   }
+ 
+ textContent =
+   element text {
+     layerCommonAttributes,
+     text
+   }
+ 
+ positionAttributes =
+   attribute x { xsd:int } ?,
+   attribute y { xsd:int } ?
+ 
+ layerCommonAttributes =
+     positionAttributes,
+     attribute name { text } ?
+ 
+ paramsContent =
+   element params {
+     attribute version { xsd:int },
+     element param {
+       attribute name { text },
+       (text | xsd:int)
+     }+
+   }
+}

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grammar xmlns="http://relaxng.org/ns/structure/1.0" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
+  <start>
+    <element name="image">
+      <attribute name="w">
+        <data type="int"/>
+      </attribute>
+      <attribute name="h">
+        <data type="int"/>
+      </attribute>
+      <optional>
+        <attribute name="name"/>
+      </optional>
+      <ref name="stackContent"/>
+    </element>
+  </start>
+  <define name="stackContent">
+    <element name="stack">
+      <ref name="layerCommonAttributes"/>
+      <oneOrMore>
+        <ref name="stackContent"/>
+        <ref name="layerContent"/>
+        <ref name="filterContent"/>
+        <ref name="textContent"/>
+      </oneOrMore>
+    </element>
+  </define>
+  <define name="layerContent">
+    <element name="layer">
+      <ref name="layerCommonAttributes"/>
+      <attribute name="src"/>
+      <optional>
+        <attribute name="compositeop"/>
+      </optional>
+      <optional>
+        <attribute name="opacity">
+          <data type="float"/>
+        </attribute>
+      </optional>
+      <element name="filters">
+        <oneOrMore>
+          <ref name="filterContent"/>
+        </oneOrMore>
+      </element>
+    </element>
+  </define>
+  <define name="filterContent">
+    <element name="filter">
+      <ref name="layerCommonAttributes"/>
+      <attribute name="type"/>
+      <attribute name="output"/>
+      <ref name="paramsContent"/>
+      <ref name="stackContent"/>
+    </element>
+  </define>
+  <define name="textContent">
+    <element name="text">
+      <ref name="layerCommonAttributes"/>
+      <text/>
+    </element>
+  </define>
+  <define name="positionAttributes">
+    <optional>
+      <attribute name="x">
+        <data type="int"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="y">
+        <data type="int"/>
+      </attribute>
+    </optional>
+  </define>
+  <define name="layerCommonAttributes">
+    <ref name="positionAttributes"/>
+    <optional>
+      <attribute name="name"/>
+    </optional>
+  </define>
+  <define name="paramsContent">
+    <element name="params">
+      <attribute name="version">
+        <data type="int"/>
+      </attribute>
+      <oneOrMore>
+        <element name="param">
+          <attribute name="name"/>
+          <choice>
+            <text/>
+            <data type="int"/>
+          </choice>
+        </element>
+      </oneOrMore>
+    </element>
+  </define>
+</grammar>
