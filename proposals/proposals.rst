@@ -3,10 +3,16 @@
 Proposals and Application Specific Extensions
 =============================================
 
-Those might move to the Extensions after discussion. Application
-developers are invited to fork the repository and make pull requests. At
-some point it might be proposed for inclusion to the Extensions through
-the Create mailing list.
+Proposals to enhance OpenRaster should be created as merge requests to the specification. Submitters should fork the openraster specification in order to create a proposal.
+
+Proposals should contain:
+
+ * Summary of the proposed feature
+ * Discuss why the feature is useful for an interchange format
+ * An actual patch to the specification
+ * A link to at least one sample implementation
+
+Proposals should be announced on the create@lists.freedesktop.org mailing list, but discussions should happen on the merge request. 
 
 .. toctree::
    :maxdepth: 2
