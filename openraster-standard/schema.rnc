@@ -13,6 +13,7 @@ grammar {
  stackContent =
    element stack {
      layerCommonAttributes,
+     attribute isolation { "isolate" | "auto" },
      ( stackContent, layerContent )+
    }
  
