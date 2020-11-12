@@ -5,7 +5,7 @@ Introduction
 ------------
 
 This document specifies the
-`OpenRaster <https://github.com/openraster/ora-spec>`__ Layer Stack XML
+`OpenRaster <https://en.wikipedia.org/wiki/OpenRaster>`__ Layer Stack XML
 format. The main two goals of the specification are interoperability
 between applications and allowing files to be saved without destructive
 pixel operations.
@@ -44,9 +44,9 @@ Syntax
 
 The formal syntax of the layer stack is given following the
 
--  https://gitorious.org/openraster/openraster-standard/blobs/master/schema.rnc
+-  https://invent.kde.org/documentation/openraster-org/-/blob/master/openraster-standard/schema.rnc
    (compact format, canonical schema)
--  https://gitorious.org/openraster/openraster-standard/blobs/master/schema.rng
+-  https://invent.kde.org/documentation/openraster-org/-/blob/master/openraster-standard/schema.rng
    (xml format)
 
 Example
