@@ -118,16 +118,20 @@ encoded in the XML document's own encoding.
 opacity attribute
 ^^^^^^^^^^^^^^^^^
 
-The object's opacity, expressed as a simple floating-point number.
-Values between 0.0 for fully transparent, and 1.0 for fully opaque.
+The object's opacity, expressed as a simple floating-point number. Values range from 0.0 (fully transparent) to 1.0 (fully opaque). Default value is 1.0.
+
+If the layer/stack has an alpha channel, it gets multiplied by this opacity before blending.
 
 visibility attribute
 ^^^^^^^^^^^^^^^^^^^^
 
 The visibility of the object.
 
--  Valid values are either visible, or hidden.
--  Default value: visible.
+Valid values:
+-  visible: the layer/stack is displayed
+-  hidden: the layer/stack is not displayed 
+
+Default value: visible.
 
 composite-op attribute
 ^^^^^^^^^^^^^^^^^^^^^^
