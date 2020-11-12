@@ -127,7 +127,9 @@ composite-op attribute
 ^^^^^^^^^^^^^^^^^^^^^^
 
 The operation to use when rendering this stack or layer over its
-backdrop. The effect is to be calculated as described in `Compositing-1:
+backdrop. It is also called the blending mode.
+
+The effect is to be calculated as described in `Compositing-1:
 General Formula for Compositing and
 Blending <http://www.w3.org/TR/compositing-1/#generalformula>`__, namely
 as combinations of a colour *blending function* and a Porter-Duff alpha
@@ -270,7 +272,7 @@ be omitted on the root stack.
 -  ``name``
 -  ``opacity``
 -  ``visibility``
--  ``composite-op``
+-  ``composite-op`` (only relevant when the stack is rendered as ``isolate``, see ``isolation`` attribute)
 -  ``isolation``
 
 isolation attribute
@@ -302,7 +304,7 @@ The following attributes are optional on ``layer`` elements:
 -  ``x and y``
 -  ``opacity``
 -  ``visibility``
--  ``composite-op``
+-  ``composite-op`` (not relevant if the layer is at the bottom of an isolate stack)
 
 x and y attributes
 ^^^^^^^^^^^^^^^^^^
@@ -333,14 +335,16 @@ were no stacked group.
 -  The root stack has a fixed, implicit rendering in OpenRaster: it is
    to composite as an isolated group over a background of the
    application's choice.
--  Non-root stacks should be rendered as isolated groups if: a) their
-   ``isolation`` property is ``isolate`` (and not ``auto``); or b) their
-   ``opacity`` is less that 1.0; or c) they use a ``composite-op`` other
-   than ``svg:src-over``. This inferential behaviour is intended to
-   provide backwards compatibility with apps which formerly didn't care
-   about group isolation.
+-  Non-root stacks should be rendered as isolated groups if their
+   ``isolation`` property is ``isolate`` (and not explicitely set to ``auto``)
+
+When a stack is not isolated, its ``composite-op`` attribute is ignored and the
+``composite-op`` of the layers are used instead. The ``visibility`` and ``opacity``
+attributes should be combined to the corresponding values of the layer, for
+example by multiplication. Thus if the stack has an opacity of 0.5 and contains
+a layer of opacity 0.5, it amounts to having a layer of opacity 0.25.
 
 Applications may assume that all stacks are isolated groups if that is
-all they support. If they do so, they must declare when writing
+all they support. If they do so, they should declare when writing
 OpenRaster files that their layer groups are isolated
 (``isolation='isolate'``). (Since: 0.0.4)
