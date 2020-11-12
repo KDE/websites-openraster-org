@@ -42,6 +42,13 @@
       <element>
         <name ns="">stack</name>
         <ref name="layerCommonAttributes"/>
+        <attribute>
+          <name ns="">isolation</name>
+          <choice>
+            <value>isolate</value>
+            <value>auto</value>
+          </choice>
+        </attribute>
         <oneOrMore>
           <group>
             <ref name="stackContent"/>
