@@ -107,8 +107,9 @@ Common attributes for layer and non-root stack elements
 x and y attributes
 ^^^^^^^^^^^^^^^^^^
 
-Position attributes. These are signed integers with a default value of
-0.
+For a layer, x and y are the horizontal and vertical offset in pixels to be applied. These are signed integers with a default value of 0. When both are zero, the layer source is drawn at the top-left corner.
+
+In the case of a non-root stack, this offset is not used for rendering. It does not have any effect on the layers contained in the stack. Readers can thus discard it and writers can omit it.
 
 name attribute
 ^^^^^^^^^^^^^^
