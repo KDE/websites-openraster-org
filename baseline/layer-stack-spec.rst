@@ -107,9 +107,9 @@ Common attributes for layer and non-root stack elements
 x and y attributes
 ^^^^^^^^^^^^^^^^^^
 
-For a layer, x and y are the horizontal and vertical offset in pixels to be applied. These are signed integers with a default value of 0. When both are zero, the layer source is drawn at the top-left corner.
+These attributes are used with layers only. They are the horizontal and vertical offset in pixels to be applied. They are signed integers with a default value of 0. When both are zero, the layer source is drawn at the top-left corner.
 
-In the case of a non-root stack, this offset is not used for rendering. It does not have any effect on the layers contained in the stack. Readers can thus discard it and writers can omit it.
+For a non-root stack, x and y are ignored. They do not add an offset to the layers contained in the stack. Readers can thus discard them and writers can omit them. The offset of the contained layers is solely defined by their own x and y attributes.
 
 name attribute
 ^^^^^^^^^^^^^^
@@ -276,10 +276,10 @@ The following attributes are optional on non-root ``stack``\ s, but must
 be omitted on the root stack.
 
 -  ``name``
--  ``x and y``
 -  ``opacity``
 -  ``visibility``
 -  ``composite-op``
+-  ``isolation``
 
 layer element
 ^^^^^^^^^^^^^
