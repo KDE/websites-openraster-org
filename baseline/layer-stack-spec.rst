@@ -62,7 +62,6 @@ Example
       <stack>
         <stack>
             <layer name="OpenRaster Logo" src="data/hw.svg" x="15" y="5" />
-            <text x="60" y="10">Use a Rich Text XML Specification to write cool text in your OpenRaster File</text>
         </stack>
         <!-- filters are syntactically permissible, but not valid for baseline -->
         <layer name="layer1" src="data/image1.png" />
@@ -301,12 +300,6 @@ The following attributes are optional on ``layer`` elements:
 -  ``opacity``
 -  ``visibility``
 -  ``composite-op``
-
-text element
-^^^^^^^^^^^^
-
-TODO: define it! Ideally, use another rich text specification, e.g. a
-relevant subset of the OpenDocument Text specification or XHTML.
 
 Compositing the image
 ~~~~~~~~~~~~~~~~~~~~~
