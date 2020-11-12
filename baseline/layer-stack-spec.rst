@@ -60,11 +60,9 @@ Example
     <?xml version='1.0' encoding='UTF-8'?>
     <image version="0.0.3" w="300" h="177" xres="600" yres="600">
       <stack>
-        <stack x="10">
-          <stack>
-            <layer name="OpenRaster Logo" src="data/hw.svg" x="5" y="5" />
-            <text x="50" y="10">Use a Rich Text XML Specification to write cool text in your OpenRaster File</text>
-          </stack>
+        <stack>
+            <layer name="OpenRaster Logo" src="data/hw.svg" x="15" y="5" />
+            <text x="60" y="10">Use a Rich Text XML Specification to write cool text in your OpenRaster File</text>
         </stack>
         <!-- filters are syntactically permissible, but not valid for baseline -->
         <layer name="layer1" src="data/image1.png" />
