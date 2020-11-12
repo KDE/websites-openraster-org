@@ -1,9 +1,6 @@
 Layer Stack Specification
 =========================
 
-Note: this is an early draft of the specification, do not take anything
-on this page for granted. Pretty much everything is open for discussion.
-
 Introduction
 ------------
 
