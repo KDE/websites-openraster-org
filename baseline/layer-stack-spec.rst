@@ -294,7 +294,7 @@ The ``layer`` element defines a graphical layer within a layer stack,
 stored in a separate file within the OpenRaster file. The following
 attribute is required:
 
--  ``"src"``: the path to the stored data file for this layer. See the
+-  ``src``: the path to the stored data file for this layer. See the
    File Layout Specification for an explanation of the values which can
    go here.
 
