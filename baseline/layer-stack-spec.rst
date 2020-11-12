@@ -120,10 +120,11 @@ visibility attribute
 The visibility of the object.
 
 Valid values:
--  visible: the layer/stack is displayed
--  hidden: the layer/stack is not displayed 
 
-Default value: visible.
+-  ``visible``: the layer/stack is displayed
+-  ``hidden``: the layer/stack is not displayed 
+
+Default value: ``visible``.
 
 composite-op attribute
 ^^^^^^^^^^^^^^^^^^^^^^
@@ -281,6 +282,7 @@ isolation attribute
 If a stack is isolated, it means the rendering is done in a separate image, starting with a fully transparent backdrop.
 
 Valid values:
+
 -  ``isolate``: the stack is always rendered as isolate
 -  ``auto``: the layers of the stack are rendered directly on the underlying backdrop, unless specified otherwise.
 
