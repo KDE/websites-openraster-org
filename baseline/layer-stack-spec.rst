@@ -101,13 +101,6 @@ to a context which requires a rectangular image.
 Common attributes for layer and non-root stack elements
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-x and y attributes
-^^^^^^^^^^^^^^^^^^
-
-These attributes are used with layers only. They are the horizontal and vertical offset in pixels to be applied. They are signed integers with a default value of 0. When both are zero, the layer source is drawn at the top-left corner.
-
-For a non-root stack, x and y are ignored. They do not add an offset to the layers contained in the stack. Readers can thus discard them and writers can omit them. The offset of the contained layers is solely defined by their own x and y attributes.
-
 name attribute
 ^^^^^^^^^^^^^^
 
@@ -282,6 +275,17 @@ be omitted on the root stack.
 -  ``composite-op``
 -  ``isolation``
 
+isolation attribute
+^^^^^^^^^^^^^^^^^^^
+
+If a stack is isolated, it means the rendering is done in a separate image, starting with a fully transparent backdrop.
+
+Valid values:
+-  ``isolate``: the stack is always rendered as isolate
+-  ``auto``: the layers of the stack are rendered directly on the underlying backdrop, unless specified otherwise.
+
+Default value: ``isolate``
+
 layer element
 ^^^^^^^^^^^^^
 
@@ -300,6 +304,13 @@ The following attributes are optional on ``layer`` elements:
 -  ``opacity``
 -  ``visibility``
 -  ``composite-op``
+
+x and y attributes
+^^^^^^^^^^^^^^^^^^
+
+These attributes are used with layers only. They are the horizontal and vertical offset in pixels to be applied. They are signed integers with a default value of 0. When both are zero, the layer source is drawn at the top-left corner.
+
+For a non-root stack, x and y are ignored. They do not add an offset to the layers contained in the stack. Readers can thus discard them and writers can omit them. The offset of the contained layers is solely defined by their own x and y attributes.
 
 Compositing the image
 ~~~~~~~~~~~~~~~~~~~~~
