@@ -73,13 +73,13 @@ Elements and Attributes
 ~~~~~~~~~~~~~~~~~
 
 This is the root element of the file. The logical size of the image is
-given by the mandatory "``w``" and "``h``" attributes, which are
+given by the mandatory ``w`` and ``h`` attributes, which are
 positive integers. The content expressed within ``image`` may have
 extents which can be smaller or larger, and so the image should be
 cropped to (0,0,w,h) when displaying, printing, or otherwise exporting
 to a context which requires a rectangular image.
 
-The mandatory "``version``" attribute specifies the version of the
+The mandatory ``version`` attribute specifies the version of the
 OpenRaster specification to which the OpenRaster file as a whole
 conforms. Values are
 `xsd:string <http://www.w3.org/TR/xmlschema-2/#string>`__\ s which
@@ -95,10 +95,10 @@ preserve resolution information specified in the document in both
 directions unless it is adjusted by the user, even if they make the
 simplifying assumption that ``xres`` is equal to ``yres``.
 
-.. versionadded:: 0.0.1
-   The ``version`` attribute.
 .. versionadded:: 0.0.3
    The ``xres`` and ``yres`` attributes.
+.. versionadded:: 0.0.1
+   The ``version`` attribute.
 
 Common attributes for layer and non-root stack elements
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

@@ -37,34 +37,34 @@ files and subdirectories within it:
 Required Files
 --------------
 
-mimetype
-~~~~~~~~
+:file:`mimetype`
+~~~~~~~~~~~~~~~~
 
-The first file in the archive must be called "``mimetype``", without a
+The first file in the archive must be called :file:`mimetype`, without a
 file name extension. It must be STORED without compression. This file
-must contain the string "``image/openraster``", with no whitespace or
+must contain the string ``image/openraster``, with no whitespace or
 trailing newline.
 
-stack.xml
-~~~~~~~~~
+:file:`stack.xml`
+~~~~~~~~~~~~~~~~~
 
 This is the UTF-8 encoded XML file from the :doc:`Layers Stack Specification
 <layer-stack-spec>`.
 
-data
-~~~~
+:file:`data/`
+~~~~~~~~~~~~~
 
 This directory is (by convention) where data files are usually stored.
 Files must be referenced in stack.xml by their full path relative to the
-OpenRaster file's root, e.g. "``data/layer2.png``".
+OpenRaster file's root, e.g. :file:`data/layer2.png`.
 
 All files inside this directory should be referenced from somewhere.
 Well known file name extensions (like ``.png``) should be lower case.
 
-Thumbnails/thumbnail.png
-~~~~~~~~~~~~~~~~~~~~~~~~
+:file:`Thumbnails/thumbnail.png`
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-An OpenRaster file must have a ``thumbnail.png`` in order to allow file
+An OpenRaster file must have a :file:`thumbnail.png` in order to allow file
 browser software to render the thumbnail efficiently. It must be a
 non-interlaced PNG with 8 bits per channel of at most 256x256 pixels. It
 should be as big as possible without upscaling or changing the aspect
@@ -73,13 +73,13 @@ decoration.
 
 The thumbnail file must not be referenced in any ``.xml`` file.
 
-mergedimage.png
-~~~~~~~~~~~~~~~
+:file:`mergedimage.png`
+~~~~~~~~~~~~~~~~~~~~~~~
 
-An OpenRaster file must have a ``mergedimage.png`` in order to
+An OpenRaster file must have a :file:`mergedimage.png` in order to
 accommodate viewer software. It must contain the final rendered image
 without any frame or decoration. This file must be a PNG file with 8 or
 16 bits per channel.
 
 .. versionchanged:: 0.0.2
-   mergedimage.png was optional; it is now mandatory.
+   :file:`mergedimage.png` was optional; it is now mandatory.
