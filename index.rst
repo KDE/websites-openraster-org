@@ -6,7 +6,7 @@
 Welcome to OpenRaster.org
 =========================
 
-This is the home of the Open Raster spec
+This is the home of the Open Raster spec, version |version|.
 
 OpenRaster is file format specification for the exchange of layered raster images 
 between image editors. OpenRaster was `proposed in 2006 by Boudewijn Rempt and

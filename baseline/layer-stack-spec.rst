@@ -266,6 +266,11 @@ compositing.
 In the future other compositing modes might be added, and a way for
 applications to define new modes will be specified.
 
+.. versionadded:: 0.0.5
+   The ``svg:src-atop`` and ``svg:dst-atop`` values.
+.. versionadded:: 0.0.4
+   The ``svg:dst-in`` and ``svg:dst-out`` values.
+
 ``stack`` element
 ^^^^^^^^^^^^^^^^^
 
@@ -282,8 +287,13 @@ be omitted on the root stack.
 -  ``composite-op`` (only relevant when the stack is rendered as ``isolate``, see ``isolation`` attribute)
 -  ``isolation``
 
+.. deprecated:: 0.0.6
+   ``x`` and ``y`` attributes on ``stack`` elements are no longer allowed.
+
 ``isolation`` attribute
 ^^^^^^^^^^^^^^^^^^^^^^^
+
+.. versionadded:: 0.0.4
 
 If a stack is isolated, it means the rendering is done in a separate image, starting with a fully transparent backdrop.
 

@@ -24,10 +24,10 @@ description = 'Open Raster Archive Specification.'
 copyright = '2018, create@lists.freedesktop.org'
 author = 'Create Mailing List'
 
-# The short X.Y version
-version = '0.05'
+# The short X.Y.Z version
+version = '0.0.6'
 # The full version, including alpha/beta/rc tags
-release = '0.05'
+release = '0.0.6'
 
 
 # -- General configuration ---------------------------------------------------
