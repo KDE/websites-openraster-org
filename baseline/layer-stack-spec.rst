@@ -220,9 +220,10 @@ be omitted on the root stack.
 -  ``name``
 -  ``opacity``
 -  ``visibility``
--  ``composite-op`` (only relevant when the stack is rendered as ``isolate``, see ``isolation`` attribute)
+-  ``composite-op`` (only relevant when the stack is rendered as ``isolate``, see |isolation attribute|_)
 -  ``isolation``
 
+.. |isolation attribute| replace:: ``isolation`` attribute
 .. deprecated:: 0.0.6
    ``x`` and ``y`` attributes on ``stack`` elements are no longer allowed.
 

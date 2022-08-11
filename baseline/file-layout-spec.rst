@@ -56,7 +56,7 @@ This is the UTF-8 encoded XML file from the :doc:`Layers Stack Specification
 
 This directory is (by convention) where data files are usually stored.
 Files must be referenced in stack.xml by their full path relative to the
-OpenRaster file's root, e.g. :file:`data/layer2.png`.
+OpenRaster file's root, e.g. ``data/layer2.png``.
 
 All files inside this directory should be referenced from somewhere.
 Well known file name extensions (like ``.png``) should be lower case.
