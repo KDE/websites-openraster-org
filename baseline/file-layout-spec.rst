@@ -73,13 +73,13 @@ decoration.
 
 The thumbnail file must not be referenced in any ``.xml`` file.
 
-Optional Files
---------------
-
 mergedimage.png
 ~~~~~~~~~~~~~~~
 
 An OpenRaster file must have a ``mergedimage.png`` in order to
 accommodate viewer software. It must contain the final rendered image
 without any frame or decoration. This file must be a PNG file with 8 or
-16 bits per channel. *(Since 0.0.2, this file is mandatory.)*
+16 bits per channel.
+
+.. versionchanged:: 0.0.2
+   mergedimage.png was optional; it is now mandatory.

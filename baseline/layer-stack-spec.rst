@@ -84,7 +84,6 @@ OpenRaster specification to which the OpenRaster file as a whole
 conforms. Values are
 `xsd:string <http://www.w3.org/TR/xmlschema-2/#string>`__\ s which
 conform to `SemVer 2.0.0 <http://semver.org/spec/v2.0.0.html>`__.
-(Since: 0.0.1)
 
 The optional ``xres`` and ``yres`` attributes specify the nominal
 resolution of the document as a whole in the horizontal and vertical
@@ -94,8 +93,12 @@ value of 1. The default value, if unspecified, is 72. If either is
 specified, the other must also be specified. Applications should
 preserve resolution information specified in the document in both
 directions unless it is adjusted by the user, even if they make the
-simplifying assumption that ``xres`` is equal to ``yres``. *(Since:
-0.0.3)*
+simplifying assumption that ``xres`` is equal to ``yres``.
+
+.. versionadded:: 0.0.1
+   The ``version`` attribute.
+.. versionadded:: 0.0.3
+   The ``xres`` and ``yres`` attributes.
 
 Common attributes for layer and non-root stack elements
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -323,6 +326,8 @@ For a non-root stack, x and y are ignored. They do not add an offset to the laye
 Compositing the image
 ~~~~~~~~~~~~~~~~~~~~~
 
+.. versionadded:: 0.0.4
+
 Layer stacks should be composited in a manner conforming to the W3C's
 `Compositing and Blending Level 1 Candidate
 Recommendation <http://www.w3.org/TR/compositing-1/>`__. In terms of
@@ -355,4 +360,4 @@ a layer of opacity 0.5, it amounts to having a layer of opacity 0.25.
 Applications may assume that all stacks are isolated groups if that is
 all they support. If they do so, they should declare when writing
 OpenRaster files that their layer groups are isolated
-(``isolation='isolate'``). (Since: 0.0.4)
+(``isolation='isolate'``).
