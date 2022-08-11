@@ -6,7 +6,7 @@ Storage
 
 OpenRaster files have the file name extension .ora. The data is stored
 within a `Zip
-file <http://www.pkware.com/documents/casestudies/APPNOTE.TXT>`__
+file <https://pkware.cachefly.net/webdocs/casestudies/APPNOTE.TXT>`__
 wrapper.
 
 Technical note: Zip files can use a different compression algorithm on a
@@ -40,22 +40,23 @@ Required Files
 mimetype
 ~~~~~~~~
 
-The first file in the archive must be called ``"mimetype"``, without a
+The first file in the archive must be called "``mimetype``", without a
 file name extension. It must be STORED without compression. This file
-must contain the string ``"image/openraster"``, with no whitespace or
+must contain the string "``image/openraster``", with no whitespace or
 trailing newline.
 
 stack.xml
 ~~~~~~~~~
 
-This is the UTF-8 encoded XML file from the Layers Stack Specification.
+This is the UTF-8 encoded XML file from the :doc:`Layers Stack Specification
+<layer-stack-spec>`.
 
 data
 ~~~~
 
 This directory is (by convention) where data files are usually stored.
 Files must be referenced in stack.xml by their full path relative to the
-OpenRaster file's root, e.g. ``"data/layer2.png"``.
+OpenRaster file's root, e.g. "``data/layer2.png``".
 
 All files inside this directory should be referenced from somewhere.
 Well known file name extensions (like ``.png``) should be lower case.

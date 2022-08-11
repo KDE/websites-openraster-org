@@ -42,7 +42,8 @@ classes of baseline support:
 Syntax
 ------
 
-The formal syntax of the layer stack is given following the
+The formal syntax of the layer stack is given following the `RelaxNG Schema
+<https://relaxng.org/>`__:
 
 -  https://invent.kde.org/documentation/openraster-org/-/blob/master/openraster-standard/schema.rnc
    (compact format, canonical schema)
@@ -68,63 +69,66 @@ Example
 Elements and Attributes
 -----------------------
 
-image element
-~~~~~~~~~~~~~
+``image`` element
+~~~~~~~~~~~~~~~~~
 
 This is the root element of the file. The logical size of the image is
-given by the mandatory ``"w"`` and ``"h"`` attributes, which are
+given by the mandatory "``w``" and "``h``" attributes, which are
 positive integers. The content expressed within ``image`` may have
 extents which can be smaller or larger, and so the image should be
 cropped to (0,0,w,h) when displaying, printing, or otherwise exporting
 to a context which requires a rectangular image.
 
--  The mandatory ``"version"`` attribute specifies the version of the
-   OpenRaster specification to which the OpenRaster file as a whole
-   conforms. Values are
-   `xsd:string <http://www.w3.org/TR/xmlschema-2/#string>`__\ s which
-   conform to `SemVer 2.0.0 <http://semver.org/spec/v2.0.0.html>`__.
-   (Since: 0.0.1)
--  The optional ``xres`` and ``yres`` attributes specify the nominal
-   resolution of the document as a whole in the horizontal and vertical
-   dimensions, in pixels per inch. Values are
-   `xsd:int <http://www.w3.org/TR/xmlschema-2/#int>`__\ s with a minimum
-   value of 1. The default value, if unspecified, is 72. If either is
-   specified, the other must also be specified. Applications should
-   preserve resolution information specified in the document in both
-   directions unless it is adjusted by the user, even if they make the
-   simplifying assumption that ``xres`` is equal to ``yres``. *(Since:
-   0.0.3)*
+The mandatory "``version``" attribute specifies the version of the
+OpenRaster specification to which the OpenRaster file as a whole
+conforms. Values are
+`xsd:string <http://www.w3.org/TR/xmlschema-2/#string>`__\ s which
+conform to `SemVer 2.0.0 <http://semver.org/spec/v2.0.0.html>`__.
+(Since: 0.0.1)
+
+The optional ``xres`` and ``yres`` attributes specify the nominal
+resolution of the document as a whole in the horizontal and vertical
+dimensions, in pixels per inch. Values are
+`xsd:int <http://www.w3.org/TR/xmlschema-2/#int>`__\ s with a minimum
+value of 1. The default value, if unspecified, is 72. If either is
+specified, the other must also be specified. Applications should
+preserve resolution information specified in the document in both
+directions unless it is adjusted by the user, even if they make the
+simplifying assumption that ``xres`` is equal to ``yres``. *(Since:
+0.0.3)*
 
 Common attributes for layer and non-root stack elements
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-name attribute
-^^^^^^^^^^^^^^
+``name`` attribute
+^^^^^^^^^^^^^^^^^^
 
 The name of the object represented by an element. A Unicode string,
 encoded in the XML document's own encoding.
 
-opacity attribute
-^^^^^^^^^^^^^^^^^
+``opacity`` attribute
+^^^^^^^^^^^^^^^^^^^^^
 
 The object's opacity, expressed as a simple floating-point number. Values range from 0.0 (fully transparent) to 1.0 (fully opaque). Default value is 1.0.
 
 If the layer/stack has an alpha channel, it gets multiplied by this opacity before blending.
 
-visibility attribute
-^^^^^^^^^^^^^^^^^^^^
+``visibility`` attribute
+^^^^^^^^^^^^^^^^^^^^^^^^
 
 The visibility of the object.
 
-Valid values:
+Valid values
+  ``visible``
+    the layer/stack is displayed
+  ``hidden``
+    the layer/stack is not displayed 
 
--  ``visible``: the layer/stack is displayed
--  ``hidden``: the layer/stack is not displayed 
+Default value
+  ``visible``.
 
-Default value: ``visible``.
-
-composite-op attribute
-^^^^^^^^^^^^^^^^^^^^^^
+``composite-op`` attribute
+^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The operation to use when rendering this stack or layer over its
 backdrop. It is also called the blending mode.
@@ -139,7 +143,7 @@ evolution of the attribute from its inspirations in the earlier `SVG 1.2
 Working
 Draft <http://dev.w3.org/SVG/modules/compositing/master/SVGCompositing.html#comp-op-property>`__
 and in `GEGL's named processing
-"operations" <http://www.gegl.org/operations.html>`__, which also
+"operations" <http://www.gegl.org/operations>`__, which also
 provide the seeds of the naming scheme for values below.
 
 .. raw:: html
@@ -259,8 +263,8 @@ compositing.
 In the future other compositing modes might be added, and a way for
 applications to define new modes will be specified.
 
-stack element
-^^^^^^^^^^^^^
+``stack`` element
+^^^^^^^^^^^^^^^^^
 
 The ``stack`` element describes a group of layers. They may contain
 sub-\ ``stack``\ s, ``layer``\ s, or ``text`` elements. The first
@@ -275,39 +279,42 @@ be omitted on the root stack.
 -  ``composite-op`` (only relevant when the stack is rendered as ``isolate``, see ``isolation`` attribute)
 -  ``isolation``
 
-isolation attribute
-^^^^^^^^^^^^^^^^^^^
+``isolation`` attribute
+^^^^^^^^^^^^^^^^^^^^^^^
 
 If a stack is isolated, it means the rendering is done in a separate image, starting with a fully transparent backdrop.
 
-Valid values:
+Valid values
+  ``isolate``
+    the stack is always rendered as isolate
+  ``auto``
+    the layers of the stack are rendered directly on the underlying backdrop, unless specified otherwise.
 
--  ``isolate``: the stack is always rendered as isolate
--  ``auto``: the layers of the stack are rendered directly on the underlying backdrop, unless specified otherwise.
+Default value
+  ``isolate``
 
-Default value: ``isolate``
-
-layer element
-^^^^^^^^^^^^^
+``layer`` element
+^^^^^^^^^^^^^^^^^
 
 The ``layer`` element defines a graphical layer within a layer stack,
 stored in a separate file within the OpenRaster file. The following
 attribute is required:
 
--  ``src``: the path to the stored data file for this layer. See the
+``src``
+   the path to the stored data file for this layer. See the
    File Layout Specification for an explanation of the values which can
    go here.
 
 The following attributes are optional on ``layer`` elements:
 
 -  ``name``
--  ``x and y``
+-  ``x`` and ``y``
 -  ``opacity``
 -  ``visibility``
 -  ``composite-op`` (not relevant if the layer is at the bottom of an isolate stack)
 
-x and y attributes
-^^^^^^^^^^^^^^^^^^
+``x`` and ``y`` attributes
+^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 These attributes are used with layers only. They are the horizontal and vertical offset in pixels to be applied. They are signed integers with a default value of 0. When both are zero, the layer source is drawn at the top-left corner.
 
@@ -332,11 +339,12 @@ Conversely non-isolated groups are rendered by rendering each child
 layer or sub-stack in turn to the group's backdrop, just as if there
 were no stacked group.
 
--  The root stack has a fixed, implicit rendering in OpenRaster: it is
-   to composite as an isolated group over a background of the
-   application's choice.
--  Non-root stacks should be rendered as isolated groups if their
-   ``isolation`` property is ``isolate`` (and not explicitely set to ``auto``)
+The root stack has a fixed, implicit rendering in OpenRaster: it is
+to composite as an isolated group over a background of the
+application's choice.
+
+Non-root stacks should be rendered as isolated groups if their
+``isolation`` property is ``isolate`` (and not explicitly set to ``auto``)
 
 When a stack is not isolated, its ``composite-op`` attribute is ignored and the
 ``composite-op`` of the layers are used instead. The ``visibility`` and ``opacity``

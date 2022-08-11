@@ -8,18 +8,19 @@ editing in order to assist user workflow. Therefore, the ``<layer/>``
 element in a layer stack definition should support the following extra
 attribute:
 
--  ``"edit-locked"``: the layer edit locking status, expressed as an
+"``edit-locked``"
+   the layer edit locking status, expressed as an
    `xsd:boolean <http://www.w3.org/TR/xmlschema-2/#boolean>`__. True
-   values (``"true"``, canonically) mean that the layer was locked to
+   values ("``true``", canonically) mean that the layer was locked to
    prevent accidental edits by the user, and should be regarded as
    un-editable after loading if such immutable layers are supported by
-   the editor. False values (``"false"``, canonically) indicate that the
+   the editor. False values ("``false``", canonically) indicate that the
    layer is not edit locked, and should be treated as editable
    immediately after loading. The default is false. (It is intended that
    other kinds of "locking", e.g. alpha locking which makes the alpha
    channel of a layer immutable, should suffix their attribute names
-   with the string ``"-locked"`` for consistency. Don't just use
-   ``"locked"`` on its own; there's more than one kind of immutability.)
+   with the string "``-locked``" for consistency. Don't just use
+   "``locked``" on its own; there's more than one kind of immutability.)
 
 Example
 -------

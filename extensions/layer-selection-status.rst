@@ -8,11 +8,12 @@ files, and are able to select the same layer or layers again when the
 file is reloaded. Therefore, the ``<layer/>`` element in a layer stack
 definition should support the following extra attribute:
 
--  ``"selected"``: the layer selection status, expressed as an
+"``selected``"
+   the layer selection status, expressed as an
    `xsd:boolean <http://www.w3.org/TR/xmlschema-2/#boolean>`__. True
-   values (``"true"``, canonically), mean that the layer is selected by
+   values ("``true``", canonically), mean that the layer is selected by
    the user, and may be made active for editing after loading. False
-   values (``"false"``, canonically) indicate that the layer is not
+   values ("``false``", canonically) indicate that the layer is not
    selected. The default is false.
 
 Example
