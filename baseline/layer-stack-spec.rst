@@ -149,116 +149,52 @@ and in `GEGL's named processing
 "operations" <http://www.gegl.org/operations>`__, which also
 provide the seeds of the naming scheme for values below.
 
-.. raw:: html
+========================= ========================= =========================
+          Value               Blending function       Compositing Operator
+========================= ========================= =========================
+``svg:src-over``          Normal_                   `Source Over`_
+``svg:multiply``          Multiply__                `Source Over`_
+``svg:screen``            Screen__                  `Source Over`_
+``svg:overlay``           Overlay__                 `Source Over`_
+``svg:darken``            Darken__                  `Source Over`_
+``svg:lighten``           Lighten__                 `Source Over`_
+``svg:color-dodge``       `Color Dodge`__           `Source Over`_
+``svg:color-burn``        `Color Burn`__            `Source Over`_
+``svg:hard-light``        `Hard Light`__            `Source Over`_
+``svg:soft-light``        `Soft Light`__            `Source Over`_
+``svg:difference``        Difference__              `Source Over`_
+``svg:color``             Color__                   `Source Over`_
+``svg:luminosity``        Luminosity__              `Source Over`_
+``svg:hue``               Hue__                     `Source Over`_
+``svg:saturation``        Saturation__              `Source Over`_
+``svg:plus``              Normal_                   Lighter__
+``svg:dst-in``            Normal_                   `Destination In`__
+``svg:dst-out``           Normal_                   `Destination Out`__
+``svg:src-atop``          Normal_                   `Source Atop`__
+``svg:dst-atop``          Normal_                   `Destination Atop`__
+========================= ========================= =========================
 
-    <table border="1" cellpadding="5" cellspacing="0">
-    <tr>
-    <th>Value</th>
-    <th>Blending function</th>
-    <th>Compositing Operator</th>
-    </tr>
-    <tr>
-    <td>svg:src-over</td>
-    <td><a href="http://www.w3.org/TR/compositing-1/#blendingnormal">Normal</a></td>
-    <td><a href="http://www.w3.org/TR/compositing-1/#porterduffcompositingoperators_srcover">Source Over</a></td>
-    </tr>
-    <tr>
-    <td>svg:multiply</td>
-    <td><a href="http://www.w3.org/TR/compositing-1/#blendingmultiply">Multiply</a></td>
-    <td><a href="http://www.w3.org/TR/compositing-1/#porterduffcompositingoperators_srcover">Source Over</a></td>
-    </tr>
-    <tr>
-    <td>svg:screen</td>
-    <td><a href="http://www.w3.org/TR/compositing-1/#blendingscreen">Screen</a></td>
-    <td><a href="http://www.w3.org/TR/compositing-1/#porterduffcompositingoperators_srcover">Source Over</a></td>
-    </tr>
-    <tr>
-    <td>svg:overlay</td>
-    <td><a href="http://www.w3.org/TR/compositing-1/#blendingoverlay">Overlay</a></td>
-    <td><a href="http://www.w3.org/TR/compositing-1/#porterduffcompositingoperators_srcover">Source Over</a></td>
-    </tr>
-    <tr>
-    <td>svg:darken</td>
-    <td><a href="http://www.w3.org/TR/compositing-1/#blendingdarken">Darken</a></td>
-    <td><a href="http://www.w3.org/TR/compositing-1/#porterduffcompositingoperators_srcover">Source Over</a></td>
-    </tr>
-    <tr>
-    <td>svg:lighten</td>
-    <td><a href="http://www.w3.org/TR/compositing-1/#blendinglighten">Lighten</a></td>
-    <td><a href="http://www.w3.org/TR/compositing-1/#porterduffcompositingoperators_srcover">Source Over</a></td>
-    </tr>
-    <tr>
-    <td>svg:color-dodge</td>
-    <td><a href="http://www.w3.org/TR/compositing-1/#blendingcolordodge">Color Dodge</a></td>
-    <td><a href="http://www.w3.org/TR/compositing-1/#porterduffcompositingoperators_srcover">Source Over</a></td>
-    </tr>
-    <tr>
-    <td>svg:color-burn</td>
-    <td><a href="http://www.w3.org/TR/compositing-1/#blendingcolorburn">Color Burn</a></td>
-    <td><a href="http://www.w3.org/TR/compositing-1/#porterduffcompositingoperators_srcover">Source Over</a></td>
-    </tr>
-    <tr>
-    <td>svg:hard-light</td>
-    <td><a href="http://www.w3.org/TR/compositing-1/#blendinghardlight">Hard Light</a></td>
-    <td><a href="http://www.w3.org/TR/compositing-1/#porterduffcompositingoperators_srcover">Source Over</a></td>
-    </tr>
-    <tr>
-    <td>svg:soft-light</td>
-    <td><a href="http://www.w3.org/TR/compositing-1/#blendingsoftlight">Soft Light</a></td>
-    <td><a href="http://www.w3.org/TR/compositing-1/#porterduffcompositingoperators_srcover">Source Over</a></td>
-    </tr>
-    <tr>
-    <td>svg:difference</td>
-    <td><a href="http://www.w3.org/TR/compositing-1/#blendingdifference">Difference</a></td>
-    <td><a href="http://www.w3.org/TR/compositing-1/#porterduffcompositingoperators_srcover">Source Over</a></td>
-    </tr>
-    <tr>
-    <td>svg:color</td>
-    <td><a href="http://www.w3.org/TR/compositing-1/#blendingcolor">Color</a></td>
-    <td><a href="http://www.w3.org/TR/compositing-1/#porterduffcompositingoperators_srcover">Source Over</a></td>
-    </tr>
-    <tr>
-    <td>svg:luminosity</td>
-    <td><a href="http://www.w3.org/TR/compositing-1/#blendingluminosity">Luminosity</a></td>
-    <td><a href="http://www.w3.org/TR/compositing-1/#porterduffcompositingoperators_srcover">Source Over</a></td>
-    </tr>
-    <tr>
-    <td>svg:hue</td>
-    <td><a href="http://www.w3.org/TR/compositing-1/#blendinghue">Hue</a></td>
-    <td><a href="http://www.w3.org/TR/compositing-1/#porterduffcompositingoperators_srcover">Source Over</a></td>
-    </tr>
-    <tr>
-    <td>svg:saturation</td>
-    <td><a href="http://www.w3.org/TR/compositing-1/#blendingsaturation">Saturation</a></td>
-    <td><a href="http://www.w3.org/TR/compositing-1/#porterduffcompositingoperators_srcover">Source Over</a></td>
-    </tr>
-    <tr>
-    <td>svg:plus</td>
-    <td><a href="http://www.w3.org/TR/compositing-1/#blendingnormal">Normal</a></td>
-    <td><a href="http://www.w3.org/TR/compositing-1/#porterduffcompositingoperators_plus">Lighter</a></td>
-    </tr>
-    <tr>
-    <td>svg:dst-in</td>
-    <td><a href="http://www.w3.org/TR/compositing-1/#blendingnormal">Normal</a></td>
-    <td><a href="http://www.w3.org/TR/compositing-1/#porterduffcompositingoperators_dstin">Destination In</a></td>
-    </tr>
-    <tr>
-    <td>svg:dst-out</td>
-    <td><a href="http://www.w3.org/TR/compositing-1/#blendingnormal">Normal</a></td>
-    <td><a href="http://www.w3.org/TR/compositing-1/#porterduffcompositingoperators_dstout">Destination Out</a></td>
-    </tr>
-
-    <tr>
-    <td>svg:src-atop</td>
-    <td><a href="http://www.w3.org/TR/compositing-1/#blendingnormal">Normal</a></td>
-    <td><a href="http://www.w3.org/TR/compositing-1/#porterduffcompositingoperators_srcatop">Source Atop</a></td>
-    </tr>
-    <tr>
-    <td>svg:dst-atop</td>
-    <td><a href="http://www.w3.org/TR/compositing-1/#blendingnormal">Normal</a></td>
-    <td><a href="http://www.w3.org/TR/compositing-1/#porterduffcompositingoperators_dstatop">Destination Atop</a></td>
-    </tr>
-    </table>
+.. _Normal: http://www.w3.org/TR/compositing-1/#blendingnormal
+.. _Source Over: http://www.w3.org/TR/compositing-1/#porterduffcompositingoperators_srcover
+__ http://www.w3.org/TR/compositing-1/#blendingmultiply
+__ http://www.w3.org/TR/compositing-1/#blendingscreen
+__ http://www.w3.org/TR/compositing-1/#blendingoverlay
+__ http://www.w3.org/TR/compositing-1/#blendingdarken
+__ http://www.w3.org/TR/compositing-1/#blendinglighten
+__ http://www.w3.org/TR/compositing-1/#blendingcolordodge
+__ http://www.w3.org/TR/compositing-1/#blendingcolorburn
+__ http://www.w3.org/TR/compositing-1/#blendinghardlight
+__ http://www.w3.org/TR/compositing-1/#blendingsoftlight
+__ http://www.w3.org/TR/compositing-1/#blendingdifference
+__ http://www.w3.org/TR/compositing-1/#blendingcolor
+__ http://www.w3.org/TR/compositing-1/#blendingluminosity
+__ http://www.w3.org/TR/compositing-1/#blendinghue
+__ http://www.w3.org/TR/compositing-1/#blendingsaturation
+__ http://www.w3.org/TR/compositing-1/#porterduffcompositingoperators_plus
+__ http://www.w3.org/TR/compositing-1/#porterduffcompositingoperators_dstin
+__ http://www.w3.org/TR/compositing-1/#porterduffcompositingoperators_dstout
+__ http://www.w3.org/TR/compositing-1/#porterduffcompositingoperators_srcatop
+__ http://www.w3.org/TR/compositing-1/#porterduffcompositingoperators_dstatop
 
 The default value is ``svg:src-over``, which represents simple alpha
 compositing.
