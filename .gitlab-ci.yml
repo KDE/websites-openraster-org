@@ -1,0 +1,24 @@
+include:
+  - project: sysadmin/ci-utilities
+    file:
+      - /gitlab-templates/blocks/workflow.yml
+
+sphinx_website:
+  image: invent-registry.kde.org/sysadmin/ci-images/staticweb:latest
+  tags:
+    - Linux
+  stage: build
+  variables:
+    LANG: en_US.UTF-8
+  before_script:
+    - git config --global --add safe.directory $CI_PROJECT_DIR
+    - git clone https://invent.kde.org/sysadmin/ci-utilities.git
+    - git clone https://invent.kde.org/sysadmin/ci-notary-service.git
+  script:
+    - sphinx-build -a $CI_PROJECT_DIR $CI_PROJECT_DIR/_site/
+    - python3 -u ci-notary-service/publishwebsite.py --config ci-utilities/signing/publishwebsite.ini _site/
+  artifacts:
+    expire_in: 2 days
+    paths:
+      - _site/
+
